@@ -1,0 +1,12 @@
+{
+  "script": "10b_calibrate_v2.py",
+  "host": "snapshots-gpu-h200x1-141gb-atl1",
+  "n_sanity_seqs": 100,
+  "n_samples_per_variant": 600000,
+  "shrinkage_lambdas": {
+    "A": 0.95,
+    "B": 0.95,
+    "C": 0.95
+  },
+  "model_variant": "evo2_7b_base (8K context, no FP8)"
+}
