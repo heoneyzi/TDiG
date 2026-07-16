@@ -1,0 +1,34 @@
+{
+  "tier1_path": "data_cache_minimal/chr22_tier1.parquet",
+  "cosine_cell": "M1_dir_refC",
+  "magnitude_cell": "M2_mag_refA",
+  "full_panel": {
+    "cosine": {
+      "mean": 4.495140468485129,
+      "std": 1.1052111298487397,
+      "cv": 0.24586798512688035,
+      "frac_in_top2_layers": 1.2944983818770227e-05
+    },
+    "magnitude": {
+      "mean": 28.647833204910874,
+      "std": 0.4776456254649249,
+      "cv": 0.01667301055714908,
+      "frac_in_top2_layers": 1.0
+    },
+    "cv_ratio_cosine_over_magnitude": 14.746466109652687
+  },
+  "window_level_context_test": {
+    "magnitude": {
+      "n_exon": 243,
+      "n_intron": 5845,
+      "cohens_d_exon_vs_intron": 0.11178081773225756,
+      "mwu_p": 0.08783884086095611
+    },
+    "cosine": {
+      "n_exon": 243,
+      "n_intron": 5845,
+      "cohens_d_exon_vs_intron": -0.3452817171848083,
+      "mwu_p": 3.342024205576515e-08
+    }
+  }
+}

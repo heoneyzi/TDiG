@@ -1,0 +1,47 @@
+{
+  "mode": "real",
+  "n_windows": 100,
+  "n_tokens": 600000,
+  "n_layers": 32,
+  "A_readout_scale_invariance_maxJS": 2.8086593374609947e-05,
+  "resolution": {
+    "transition_width_layers": {
+      "cosine": 14.135,
+      "jsd": 8.76,
+      "note": "10->90% fall width; larger=smoother. Expect cosine>>jsd on real Evo 2."
+    },
+    "binariness_max_single_drop_frac": {
+      "cosine": 0.3445095244050026,
+      "jsd": 0.6645309561491013,
+      "note": "1.0=cliff. Expect jsd>>cosine on real Evo 2."
+    },
+    "interp_settling_granularity": {
+      "cosine": {
+        "n_distinct_0p1": 52,
+        "entropy_bits": 0.04603430854534768,
+        "iqr": 0.0
+      },
+      "jsd": {
+        "n_distinct_0p1": 35,
+        "entropy_bits": 0.012191844375983526,
+        "iqr": 0.0
+      },
+      "note": "distinct sub-layer levels; more=higher resolution."
+    }
+  },
+  "proxy_fidelity": {
+    "spearman_cos_vs_jsd_commit": 0.8689009914649173,
+    "agreement_within1layer": 0.9875283333333333,
+    "caveat": "PARTLY STRUCTURAL: readout unembed(RMSNorm(h)) is direction-based, so a direction lens tracking an output-distribution lens is expected. Validates cosine as a faithful PROXY of the same commitment event; NOT independent proof of JSD."
+  },
+  "trajectory_control": {
+    "spearman_geo_vs_jsd_commit": 0.0282645746609736,
+    "geo_settling_std": 1.4749567017073273,
+    "note": "decoupling is meaningful only if geo settling actually VARIES (std large)."
+  },
+  "magnitude_control": {
+    "spearman_mag_vs_jsd_commit": 0.04393360535951582,
+    "note": "expected ~0 by 7A (readout ignores magnitude)."
+  },
+  "headline": "Cosine is a DIRECT (angle to h_norm, no decoding), HIGH-RESOLUTION proxy for functional commitment: reads the direction the model uses (A), resolves stabilization far more smoothly/densely than the near-binary JSD it proxies (resolution). Proxy, not proof."
+}

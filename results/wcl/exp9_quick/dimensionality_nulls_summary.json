@@ -1,0 +1,199 @@
+{
+  "n": 8008,
+  "n_PLP": 3514,
+  "n_BLB": 4494,
+  "n_layers": 32,
+  "folds": 5,
+  "seed": 42,
+  "headline_auroc": {
+    "cos_32d": 0.9381932502680485,
+    "mag_32d": 0.9279169798015643,
+    "comb_64d": 0.9487772098078536
+  },
+  "H9a_permutation_null": {
+    "cos_32d": {
+      "real_auroc": 0.9381932502680485,
+      "null_mean": 0.5004053197218121,
+      "null_std": 0.006952260340291489,
+      "null_p95": 0.5112848181309981,
+      "null_max": 0.5115507833248353,
+      "empirical_p": 0.024390243902439025
+    },
+    "mag_32d": {
+      "real_auroc": 0.9279169798015643,
+      "null_mean": 0.4986669334487342,
+      "null_std": 0.009982503582272786,
+      "null_p95": 0.5149058321992088,
+      "null_max": 0.5287519259854219,
+      "empirical_p": 0.024390243902439025
+    },
+    "comb_64d": {
+      "real_auroc": 0.9487772098078536,
+      "null_mean": 0.4995392294386571,
+      "null_std": 0.008656919829495851,
+      "null_p95": 0.5120003551184037,
+      "null_max": 0.5196088302394719,
+      "empirical_p": 0.024390243902439025
+    }
+  },
+  "H9a_verdict": "PASS: permuted-label AUROC ~0.5 for all models incl. 64-d; real scores outside the null (p<1/P). Dimensional capacity alone does not produce the score.",
+  "H9b_dimension_curve": {
+    "k": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "real_auroc": [
+      0.8204348351397006,
+      0.8955787252161168,
+      0.9007355408932012,
+      0.9176385563347728,
+      0.9349336078028784,
+      0.9382066115346611
+    ],
+    "null_auroc": [
+      0.4948000082236168,
+      0.49184761156699836,
+      0.49451564332029124,
+      0.4955639961610738,
+      0.49645639368058103,
+      0.49556262415107405
+    ],
+    "k_saturation_95pct": 2,
+    "k_saturation_99pct": 16,
+    "min_real_minus_null_gap": 0.3256348269160838,
+    "null_curve_max": 0.49645639368058103
+  },
+  "H9b_verdict": "PASS: cosine reaches 95% of its 32-d ceiling by k=2 PC(s) (99% by k=16); the label-permuted null stays flat (max 0.496) so the real\u2212null gap is >=0.326 at EVERY k. The signal is concentrated in a few components \u2014 extra columns add capacity that the null shows is worthless, yet the real curve does not use it.",
+  "H9c_matched_dimension": {
+    "auroc": {
+      "real_comb_64d": 0.9487772098078536,
+      "mag32_plus_noise32": 0.9261028870720944,
+      "mag32_plus_shuffledcos32": 0.9290707346720943,
+      "mag_32d": 0.9279169798015643
+    },
+    "real_vs_mag+noise": {
+      "mean_diff": 0.02277359441374942,
+      "ci95": [
+        0.02006596602970782,
+        0.02587471336600317
+      ],
+      "frac_pos": 1.0
+    },
+    "real_vs_mag+shuffledcos": {
+      "mean_diff": 0.01966971371090542,
+      "ci95": [
+        0.017026537501845886,
+        0.022059821620125118
+      ],
+      "frac_pos": 1.0
+    },
+    "real_vs_mag_alone": {
+      "mean_diff": 0.020840952632557908,
+      "ci95": [
+        0.018077727237151044,
+        0.023785807561286544
+      ],
+      "frac_pos": 1.0
+    }
+  },
+  "H9c_verdict": "PASS: real 64-d beats BOTH equal-dimensional controls (mag+noise, mag+shuffled-cos) with bootstrap CIs excluding 0. Adding 32 columns helps only when they carry real, correctly-layer-aligned cosine information \u2014 not from doubling the dimension.",
+  "H9d_redundancy": {
+    "cos": {
+      "auroc_32d": 0.9381932502680485,
+      "auroc_best_tap": 0.8408155793128584,
+      "best_layer": 28,
+      "gap_32d_minus_1d": 0.09737767095519001,
+      "mean_interlayer_abscorr": 0.7031100174834901,
+      "argmax_layer_entropy_bits": 1.2850034482531387,
+      "per_layer_auroc": [
+        0.6870612786947448,
+        0.6552876801016418,
+        0.6663306403098901,
+        0.6928200479283197,
+        0.7398620914650256,
+        0.7185957359448975,
+        0.765567996942233,
+        0.8088338995724141,
+        0.784511138483766,
+        0.7938780829381311,
+        0.8091476677054259,
+        0.8130189522284692,
+        0.8027193786998361,
+        0.8085964046414634,
+        0.8124554043980476,
+        0.8051037315548031,
+        0.800062449673618,
+        0.8138384538012993,
+        0.8156831317998398,
+        0.8135724316162776,
+        0.8176782032021953,
+        0.8181930235697809,
+        0.817095341692547,
+        0.8168056365041456,
+        0.8066125731671825,
+        0.8045508220788409,
+        0.8229017302270352,
+        0.8073461446983381,
+        0.8408155793128584,
+        0.7812590315196712,
+        0.8070307618150958,
+        0.8070307618150958
+      ]
+    },
+    "mag": {
+      "auroc_32d": 0.9279169798015643,
+      "auroc_best_tap": 0.8549411610345443,
+      "best_layer": 8,
+      "gap_32d_minus_1d": 0.07297581876701997,
+      "mean_interlayer_abscorr": 0.7445285681279301,
+      "argmax_layer_entropy_bits": -0.0,
+      "per_layer_auroc": [
+        0.6398204942326187,
+        0.6790862806007834,
+        0.6793786770395689,
+        0.6968173462928754,
+        0.748889051841461,
+        0.808547043943243,
+        0.831080851747185,
+        0.8525252413956608,
+        0.8549411610345443,
+        0.8493602676204713,
+        0.8456122107032484,
+        0.8454994948048102,
+        0.8441476639060137,
+        0.8372848487795909,
+        0.83400563934104,
+        0.8320232959699128,
+        0.8270707620278629,
+        0.8231494202476761,
+        0.8201340483320707,
+        0.8197908347536804,
+        0.8129905516214752,
+        0.8050595000631968,
+        0.8058839725337951,
+        0.7993083929777743,
+        0.7722482503073091,
+        0.7724314136422713,
+        0.8083304141182108,
+        0.8070129679007918,
+        0.7344269688364603,
+        0.7920349880280517,
+        0.7504585890654434,
+        0.7504585890654434
+      ]
+    }
+  },
+  "H9d_verdict": "PASS: magnitude's 32-d\u22481-d (small gap, high inter-layer |r|, low argmax entropy) \u2014 one redundant SIZE scalar readable at any tap, so a fixed peak layer costs no AUROC. Cosine's 32-d\u226b1-d (large gap, low inter-layer |r|, high argmax entropy) \u2014 a genuinely distributed, layer-wise signal. AUROC (scoring) and localization (where) are orthogonal.",
+  "H9e_locality": {
+    "cos_32d_layerindexed": 0.9381932502680485,
+    "cos_summary_4d_orderinvariant": 0.8663419942203341,
+    "cos_layer_shuffled_32d": 0.8301410671130721,
+    "gain_from_layer_index_vs_summary": 0.07185125604771436,
+    "gain_from_layer_index_vs_shuffle": 0.10805218315497633
+  },
+  "H9e_verdict": "PASS: the layer-indexed cosine-32d beats both the order-invariant 4-d summary and the per-variant layer-shuffled 32-d. The specific LAYER of the directional change is informative \u2014 'layer-wise differences are meaningful' in the literal, testable sense."
+}

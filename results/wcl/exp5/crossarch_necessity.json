@@ -1,0 +1,32 @@
+{
+  "models": {
+    "evo2": {
+      "cosine_d": -0.0994946738427132,
+      "magnitude_d": 0.1736496946251537,
+      "magnitude_degenerate_or_weak": true
+    },
+    "hyenadna_large": {
+      "comparison_vs_evo2": {
+        "model": "HyenaDNA-medium-160k",
+        "n_layers": 10,
+        "gamma_q70_curvature": 1.1941598773002624,
+        "donor_n": 1561,
+        "intron_n": 283806,
+        "donor_mean": 2.716848174247277,
+        "intron_mean": 2.944655856465332,
+        "cohen_d_donor_minus_intron": -0.13815804520994618,
+        "evo2_reference_d_M3_geo_a0.5_b1.0": -0.81,
+        "sign_agreement_with_evo2": true,
+        "ratio_magnitude_vs_evo2": 0.17056548791351378
+      },
+      "available_cells": [],
+      "has_magnitude_cell": false,
+      "magnitude_replication": "NOT PRESENT in hyenadna_tier1.parquet \u2014 re-run scripts/36_hyenadna_crossarch.py with M2 enabled to test H5a (cheap: HyenaDNA-large forward is minutes on H200)."
+    },
+    "nt_v2_dnabert2": {
+      "status": "cosine numbers cited from paper Table A6/A7 (per-window, tokenisation-limited)",
+      "magnitude_replication": "NOT POSSIBLE from public assets \u2014 no per-layer raw hidden states for NT-v2/DNABERT-2 exist on HF or GitHub. Would require a re-forward that additionally saves \u2016h_ell\u2016. Reported as a scope limit."
+    }
+  },
+  "H5a_verdict": "pending_hyenadna_reforward"
+}

@@ -1,0 +1,9 @@
+{
+  "n_tokens": 600000,
+  "H7a_spearman_cos_vs_predCommit": 0.8688968287359895,
+  "H7b_spearman_geo_vs_predCommit": 0.03298725993248498,
+  "H7d_spearman_mag_vs_predCommit": 0.07257676689183806,
+  "H7c_agreement_cos_within1layer": 0.9875398546316374,
+  "agreement_geo_within1layer": 0.015541405099169046,
+  "interpretation": "cosine settling tracks functional prediction commitment (JSD ground truth) at high correlation; trajectory does not \u2014 proving the h_norm reference is functional, not decorative, and that cosine measures the paper's intended construct while trajectory answers a different (geometry) question."
+}

@@ -1,0 +1,440 @@
+{
+  "_diagnostics": {
+    "c_cos": {
+      "n": 10240,
+      "n_unique": 15,
+      "frac_finite": 1.0,
+      "min": 0.0,
+      "max": 24.0,
+      "std": 1.091
+    },
+    "c_jsd": {
+      "n": 10240,
+      "n_unique": 16,
+      "frac_finite": 1.0,
+      "min": 0.0,
+      "max": 24.0,
+      "std": 1.164
+    },
+    "c_causal_dir@rep_tau": {
+      "n": 10240,
+      "n_unique": 25,
+      "frac_finite": 1.0,
+      "min": 0.0,
+      "max": 31.0,
+      "std": 7.493
+    },
+    "c_causal_mag@rep_tau": {
+      "n": 10240,
+      "n_unique": 19,
+      "frac_finite": 1.0,
+      "min": 0.0,
+      "max": 22.0,
+      "std": 1.051
+    },
+    "dir_freeze_KL_finite_frac": 1.0,
+    "mag_freeze_KL_finite_frac": 1.0,
+    "spearman_null_reason": "if a Spearman is null: the paired array had <10 finite pairs OR was constant (n_unique<2). Check n_unique/frac_finite above. c_causal constant usually means the freeze forward returned non-finite output (see *_finite_frac)."
+  },
+  "schema_version": "wcl10.v2",
+  "mode": "real",
+  "n_tokens": 10240,
+  "n_layers": 32,
+  "freeze_method": "UPDATE orthogonal projection: keep the block update component parallel to u0=unit(x_from_layer) (numerically stable; no state collapse)",
+  "commit_definition": "firstcross : FIRST from_layer whose normalised freeze-KL <= tau",
+  "representative_tau": 0.05,
+  "H10a_causal_vs_cos_hnorm": {
+    "spearman": 0.15761617230142674,
+    "agree_1layer": 0.13955078125,
+    "tau": 0.05
+  },
+  "H10b_reference_specificity": {
+    "spearman_causal_vs_cos_random": -0.014379090401964098,
+    "spearman_causal_vs_cos_midlayer": -0.016058317290870337,
+    "verdict_note": "causal commit matches ONLY the h_norm-anchored cosine settling (random/mid ~0) => h_norm is the functional reference (the causal Exp-8 proof)."
+  },
+  "H10c_direction_vs_magnitude_freeze": {
+    "dir_freeze_KL_curve": [
+      9.58626,
+      10.2376,
+      11.39648,
+      8.62334,
+      9.70764,
+      10.38246,
+      10.08098,
+      6.47822,
+      7.90453,
+      6.81951,
+      7.47361,
+      7.56771,
+      7.90907,
+      5.99473,
+      7.10925,
+      6.80147,
+      6.65538,
+      5.9923,
+      6.24351,
+      8.99384,
+      7.11279,
+      7.24582,
+      7.48548,
+      8.46922,
+      7.12632,
+      5.86693,
+      6.39564,
+      8.64946,
+      9.84855,
+      12.01821,
+      11.40317,
+      0.0
+    ],
+    "mag_freeze_KL_curve": [
+      0.4257,
+      0.00294,
+      0.22959,
+      0.01457,
+      0.01305,
+      0.00577,
+      0.01654,
+      0.37523,
+      0.37017,
+      0.41219,
+      0.00333,
+      0.00518,
+      0.00294,
+      0.00337,
+      0.00275,
+      0.00672,
+      0.00278,
+      0.00106,
+      0.00086,
+      0.00139,
+      0.00106,
+      0.00093,
+      0.00083,
+      0.00063,
+      0.00021,
+      0.0003,
+      0.00027,
+      0.00025,
+      0.00022,
+      0.00189,
+      0.0,
+      0.0
+    ],
+    "mean_dir_over_mag": 133.2727813720703,
+    "verdict_note": "magnitude-freeze KL -> 0 at late layers << direction-freeze => model reads direction."
+  },
+  "H10d_causal_vs_jsd": {
+    "spearman": 0.19310124338697945,
+    "agree_1layer": 0.175,
+    "tau": 0.05
+  },
+  "H10e_layer_meaningful": {
+    "c_causal_entropy_bits": 2.3623751432788507,
+    "c_cos_entropy_bits": 1.482716530993024,
+    "note": "entropy > 0 => the commit layer genuinely varies across tokens."
+  },
+  "target_similarity": {
+    "spearman_cos_vs_jsd": 0.8538976248627889
+  },
+  "tau_sweep_vs_cos": [
+    {
+      "tau": 0.02,
+      "spearman": 0.27170869352312016,
+      "entropy_bits": 2.514
+    },
+    {
+      "tau": 0.05,
+      "spearman": 0.15761617230142674,
+      "entropy_bits": 2.362
+    },
+    {
+      "tau": 0.1,
+      "spearman": 0.040101662846513016,
+      "entropy_bits": 2.142
+    },
+    {
+      "tau": 0.15,
+      "spearman": 0.01447779827864933,
+      "entropy_bits": 2.204
+    },
+    {
+      "tau": 0.2,
+      "spearman": 0.00989711653330487,
+      "entropy_bits": 2.393
+    },
+    {
+      "tau": 0.3,
+      "spearman": 0.06954942740106171,
+      "entropy_bits": 2.626
+    },
+    {
+      "tau": 0.4,
+      "spearman": 0.09996121303019198,
+      "entropy_bits": 2.049
+    },
+    {
+      "tau": 0.5,
+      "spearman": 0.077534002241468,
+      "entropy_bits": 1.259
+    }
+  ],
+  "tau_sweep_vs_jsd": [
+    {
+      "tau": 0.02,
+      "spearman": 0.3186921700773458,
+      "entropy_bits": 2.514
+    },
+    {
+      "tau": 0.05,
+      "spearman": 0.19310124338697945,
+      "entropy_bits": 2.362
+    },
+    {
+      "tau": 0.1,
+      "spearman": 0.0509557242126408,
+      "entropy_bits": 2.142
+    },
+    {
+      "tau": 0.15,
+      "spearman": 0.018917431056065047,
+      "entropy_bits": 2.204
+    },
+    {
+      "tau": 0.2,
+      "spearman": 0.00958136831351193,
+      "entropy_bits": 2.393
+    },
+    {
+      "tau": 0.3,
+      "spearman": 0.07365558649776412,
+      "entropy_bits": 2.626
+    },
+    {
+      "tau": 0.4,
+      "spearman": 0.10801089140763594,
+      "entropy_bits": 2.049
+    },
+    {
+      "tau": 0.5,
+      "spearman": 0.09390318001504282,
+      "entropy_bits": 1.259
+    }
+  ],
+  "data_stability_vs_cos": {
+    "splitA": [
+      {
+        "tau": 0.02,
+        "spearman": 0.2665759380319938
+      },
+      {
+        "tau": 0.05,
+        "spearman": 0.1643268710009589
+      },
+      {
+        "tau": 0.1,
+        "spearman": 0.0481384176839988
+      },
+      {
+        "tau": 0.15,
+        "spearman": 0.020926541004743532
+      },
+      {
+        "tau": 0.2,
+        "spearman": 0.022672849986614743
+      },
+      {
+        "tau": 0.3,
+        "spearman": 0.07493470653827693
+      },
+      {
+        "tau": 0.4,
+        "spearman": 0.09753764466124956
+      },
+      {
+        "tau": 0.5,
+        "spearman": 0.0706077484783755
+      }
+    ],
+    "splitB": [
+      {
+        "tau": 0.02,
+        "spearman": 0.27724625343777454
+      },
+      {
+        "tau": 0.05,
+        "spearman": 0.15101268069388116
+      },
+      {
+        "tau": 0.1,
+        "spearman": 0.03219840215083082
+      },
+      {
+        "tau": 0.15,
+        "spearman": 0.008050471192672791
+      },
+      {
+        "tau": 0.2,
+        "spearman": -0.0030015203008076047
+      },
+      {
+        "tau": 0.3,
+        "spearman": 0.06433894332159383
+      },
+      {
+        "tau": 0.4,
+        "spearman": 0.10248976382700523
+      },
+      {
+        "tau": 0.5,
+        "spearman": 0.08492020772810868
+      }
+    ],
+    "note": "overlap of the two curves across tau => stable on new evaluation data."
+  },
+  "reference_specificity_tau_sweep": {
+    "vs_cos_random": [
+      {
+        "tau": 0.02,
+        "spearman": 0.0009438048191923685
+      },
+      {
+        "tau": 0.05,
+        "spearman": -0.014379090401964098
+      },
+      {
+        "tau": 0.1,
+        "spearman": 0.0067575071635759655
+      },
+      {
+        "tau": 0.15,
+        "spearman": 0.01272922845736732
+      },
+      {
+        "tau": 0.2,
+        "spearman": 0.007197026647174978
+      },
+      {
+        "tau": 0.3,
+        "spearman": 0.00015595850343710463
+      },
+      {
+        "tau": 0.4,
+        "spearman": -0.007796419099708743
+      },
+      {
+        "tau": 0.5,
+        "spearman": -0.0009554393604422545
+      }
+    ],
+    "vs_cos_midlayer": [
+      {
+        "tau": 0.02,
+        "spearman": -0.03978166560331387
+      },
+      {
+        "tau": 0.05,
+        "spearman": -0.016058317290870337
+      },
+      {
+        "tau": 0.1,
+        "spearman": -0.008175524747127894
+      },
+      {
+        "tau": 0.15,
+        "spearman": -0.01853156183421172
+      },
+      {
+        "tau": 0.2,
+        "spearman": -0.027825566626585033
+      },
+      {
+        "tau": 0.3,
+        "spearman": -0.05046175581534123
+      },
+      {
+        "tau": 0.4,
+        "spearman": -0.035598793610971215
+      },
+      {
+        "tau": 0.5,
+        "spearman": -0.02002619876438138
+      }
+    ]
+  },
+  "magnitude_control": {
+    "mean_dir_over_mag_absKL": 133.2727813720703,
+    "spearman_causal_MAG_vs_cos": [
+      {
+        "tau": 0.02,
+        "spearman": -0.06731290427436941
+      },
+      {
+        "tau": 0.05,
+        "spearman": -0.05982661307785033
+      },
+      {
+        "tau": 0.1,
+        "spearman": -0.0416222680366982
+      },
+      {
+        "tau": 0.15,
+        "spearman": -0.0029463275793607632
+      },
+      {
+        "tau": 0.2,
+        "spearman": 0.03601659060253971
+      },
+      {
+        "tau": 0.3,
+        "spearman": 0.05338626398701476
+      },
+      {
+        "tau": 0.4,
+        "spearman": 0.08355740033752748
+      },
+      {
+        "tau": 0.5,
+        "spearman": 0.09729924442501581
+      }
+    ],
+    "note": "the magnitude-freeze commit layer should NOT track c_cos across tau."
+  },
+  "candidate_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "headline": "Update-projection freeze + FIRST-CROSSING commit (same 'first threshold crossing' logic as c_cos; it tracks the token-specific MID approach to h_norm, whereas last-effective locks onto the universal L28->L30 rotation and goes constant). c_causal is meaningful ONLY if its correlation with c_cos (and c_jsd) is stable across a wide tau range AND across held-out data, appears ONLY for the h_norm reference, and is absent for magnitude (see dir/mag ratio: perpendicular-update control ~0). Read tau_sweep_vs_cos + data_stability_vs_cos + _diagnostics.",
+  "caveat": "MOCK verifies code/logic only (its blocks are not fully scale-invariant, so magnitude separation is understated). Freezing = counterfactual; c_causal is an output-space sufficiency layer, not a full circuit."
+}

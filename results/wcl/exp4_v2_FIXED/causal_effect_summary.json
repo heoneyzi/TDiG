@@ -1,0 +1,55 @@
+{
+  "mode": "real",
+  "layers": [
+    12,
+    20,
+    24,
+    27
+  ],
+  "metric": "symmetric KL of next-token distribution (OUTPUT space)",
+  "interventions": "EQUAL budget B=||h_ref-h_alt||: angular vs radial vs on-manifold null",
+  "per_layer": {
+    "L12": {
+      "n": 60,
+      "median_direction": 0.0872468389570713,
+      "median_magnitude": 0.0006036772974766791,
+      "median_null": 0.0014805923565290868,
+      "direction_over_magnitude": 144.52562539912606,
+      "direction_above_null": true,
+      "magnitude_at_or_below_null": true,
+      "wilcoxon_dir_vs_mag_p": 1.742088718600998e-10
+    },
+    "L20": {
+      "n": 60,
+      "median_direction": 0.09050437808036804,
+      "median_magnitude": 0.0006271734309848398,
+      "median_null": 0.003939426504075527,
+      "direction_over_magnitude": 144.30518515149876,
+      "direction_above_null": true,
+      "magnitude_at_or_below_null": true,
+      "wilcoxon_dir_vs_mag_p": 3.240577365014827e-10
+    },
+    "L24": {
+      "n": 60,
+      "median_direction": 0.06832009553909302,
+      "median_magnitude": 0.0007139744702726603,
+      "median_null": 0.006384328939020634,
+      "direction_over_magnitude": 95.68982979601806,
+      "direction_above_null": true,
+      "magnitude_at_or_below_null": true,
+      "wilcoxon_dir_vs_mag_p": 5.970871816020806e-11
+    },
+    "L27": {
+      "n": 60,
+      "median_direction": 0.06034203805029392,
+      "median_magnitude": 0.001527965476270765,
+      "median_null": 0.02773597650229931,
+      "direction_over_magnitude": 39.49175487758268,
+      "direction_above_null": true,
+      "magnitude_at_or_below_null": true,
+      "wilcoxon_dir_vs_mag_p": 6.727061036745202e-07
+    }
+  },
+  "read_as": "direction >> magnitude AND direction > null, at equal budget, in output space, means the model's computation is causally more sensitive to angular than radial moves of the residual stream. This is the valid version of Exp 4.",
+  "caveat": "MOCK verifies code only. Patching = counterfactual activations; claim is output-space sensitivity above an on-manifold null, not a full circuit."
+}

@@ -1,0 +1,49 @@
+{
+  "n_variants": 8008,
+  "n_PLP": 3514,
+  "n_BLB": 4494,
+  "auroc": {
+    "D_cos_32d": 0.9382530910118823,
+    "M_l2_32d": 0.9264078532332619,
+    "D_plus_M_64d": 0.951210353449195
+  },
+  "complementarity_H3a": {
+    "D_plus_M_vs_M_alone": {
+      "mean_diff": 0.024819025514745404,
+      "ci95": [
+        0.0217522262051029,
+        0.028240514855719923
+      ]
+    },
+    "D_plus_M_vs_D_alone": {
+      "mean_diff": 0.012914494299326845,
+      "ci95": [
+        0.010645954636896238,
+        0.01529899411971274
+      ]
+    }
+  },
+  "localization_H3b_H3c": {
+    "argmax_cos": {
+      "mean": 5.826673326673327,
+      "std": 10.90734649741005,
+      "top5_layers": {
+        "0": 5961,
+        "27": 1367,
+        "6": 183,
+        "4": 168,
+        "28": 132
+      }
+    },
+    "argmax_mag": {
+      "mean": 30.0,
+      "std": 0.0,
+      "frac_at_layer30": 1.0
+    },
+    "M_l2_at_L30": {
+      "mean": 1459329747932.5793,
+      "max": 10167166959616.0
+    }
+  },
+  "caveat": "TDiG 18_variant_forward.py cohort/pipeline, not the paper's official 31_phase3_main.py -- directionally informative pilot, not a citable reproduction of Table A8."
+}

@@ -1,0 +1,6 @@
+lens,cell,construct_type,bounded,reference_anchored,well_posed_nondegenerate,biological_d_donor_vs_intron,abs_biological_d,chr22_to_chr17_retention_pct,sign_preserved,settling_scalar_AUROC,strongest_biological
+Cosine / direction (paper's lens),M1_dir_refC,"bounded, reference-anchored",True,True,True,-0.099,0.099,105.3,True,0.541,False
+Magnitude ratio (r−1),M2_mag_refA,"unbounded, depth-monotone",False,True,True,0.174,0.174,108.3,True,0.552,False
+Whitened Mahalanobis distance,M4_set_refA,unbounded distance,False,True,True,-0.155,0.155,116.8,True,0.629,False
+Path tortuosity,M5_tau_refB,reference-free ratio,False,False,True,-0.437,0.437,97.2,True,,False
+Trajectory velocity+curvature,M3_geo_a0.5_b1.0,reference-free dynamics,False,False,True,-0.889,0.889,90.2,True,0.558,True
